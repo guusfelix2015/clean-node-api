@@ -26,8 +26,7 @@ export class SignUpController implements Controller {
         return badRequest(new InvalidParamError('passwordConfirmation'))
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      const isValid = this.emailValidator.isValid(email)
+      const isValid = this.emailValidator.isValid(email as string)
       if (!isValid) {
         return badRequest(new InvalidParamError('email'))
       }
